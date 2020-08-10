@@ -1,6 +1,6 @@
 source : https://ron.sh/creating-real-time-charts-with-flask/
 Objective:
- - Gather the facts 
+ - Gather the facts
  - display in a chart
  - Learn about Server-Sent Events
 
