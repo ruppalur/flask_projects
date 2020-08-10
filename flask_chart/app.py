@@ -22,6 +22,14 @@ app = Flask(__name__)
 def cpudata():
     return render_template('cpudata.html')
 
+# page will return the data from cpuinfo and update the div instead of chart
+
+
+@app.route('/cpupage')
+def cpupage():
+    return render_template('cpupage.html')
+
+
 # page creates json data and send the data over SSE.
 
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--W3Schools onmessage event example-->
+<html>
+<body>
+
+<h1 id="myH1"></h1>
+<div id="myDIV"></div>
+
+<p><strong>Note:</strong> Server-Sent Events are not supported in Internet Explorer.</p>
+
+<script>
+if(typeof(EventSource) !== "undefined") {
+  var source = new EventSource("/cpuinfo");
+  source.onopen = function() {
+    document.getElementById("myH1").innerHTML = "Getting CPU utilization updates";
+  };
+
+  source.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+    document.getElementById("myDIV").innerHTML += data.time + " - CPU0: "+ data.cpu0 + " - CPU1:"+ data.cpu1 +"<br>";
+  };
+
+} else {
+  document.getElementById("myDIV").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
+</script>
+
+</body>
+</html>
